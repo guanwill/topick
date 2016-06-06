@@ -15,4 +15,7 @@
 //= require turbolinks
 // require materialize-sprockets
 //= require bootstrap-sprockets
+//= require jquery.turbolinks
+//= require chosen-jquery
+//= require messages
 // require_tree .

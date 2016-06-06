@@ -1,9 +1,15 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
+gem 'gravatar_image_tag'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'mailboxer'
 gem 'materialize-sass'
 gem 'devise'
+gem 'jquery-turbolinks'
+gem 'chosen-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
