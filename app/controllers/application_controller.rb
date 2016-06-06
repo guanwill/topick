@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:account_update) << :name
   end
+# Here, we simply permit the :name attribute for account creation and editing. If you forget to do this, users won’t be able to set their names.
 
-  
 end
