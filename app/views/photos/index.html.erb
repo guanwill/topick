@@ -1,0 +1,12 @@
+<div class="page-header"><h1>Photos</h1></div>
+
+<div class="media">
+  <div class="media-left">
+    <% @photos.each do |photo| %>
+      <%= image_tag photo.image.url %>
+    <%end%>
+
+  </div>
+  <div class="media-body">
+  </div>
+</div>
