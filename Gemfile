@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'paperclip'
-gem 'bootstrap-will_paginate'
+# gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'materialize-sass'

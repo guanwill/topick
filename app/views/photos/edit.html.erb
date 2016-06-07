@@ -1,0 +1,13 @@
+<div class="page-header"><h1>Edit Photo</h1></div>
+
+<%= form_for @photo, :method => :patch do |f| %>
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control'%>
+  </div>
+
+  <%= f.submit 'Submit Changes', class: 'btn btn-primary' %>
+<% end %>
+
+<p><%= button_to 'Cancel', photos_path, class: 'cancel_edit', method: :get %> </p>

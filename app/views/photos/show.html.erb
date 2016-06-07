@@ -1,0 +1,11 @@
+<h1>ORIGINAL PICTURE</h1>
+
+<p><%= link_to image_tag(@photo.image.url(:thumb)), @photo.image.url, target: '_blank' %></p>
+
+  <%= button_to edit_photo_path(@photo), method: :get do %>
+    <p>edit<p>
+  <%end%>
+
+<%= button_to photo_path(@photo), method: :delete do%>
+  <p>delete<p>
+<%end%>

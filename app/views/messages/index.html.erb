@@ -1,0 +1,57 @@
+<div class="messages_body">
+
+<!--HEADING-->
+<%if current_user.id == @recipient.id%>
+  <h1 class="messages_header"><%=@sender.name%></h1>
+<%else%>
+  <h1 class="messages_header"><%=@recipient.name%></h1>
+<%end%>
+
+
+<div class="message_subbody">
+  <% if @over_ten %>
+   <%= link_to 'Show Previous', '?m=all' %>
+  <% end %>
+
+  <div class="ui segment">
+   <% @messages.each do |message| %>
+
+    <% if message.body %>
+     <% user = User.find(message.user_id) %>
+     <div class="item">
+      <div class="content">
+       <div class="header"><strong><%= user.name %></strong>     <%= message.message_time %></div>
+        <div class="list">
+         <div class="item">
+          <i class="right triangle icon"></i>
+           <%= message.body %>
+        </div>
+      </div>
+     </div>
+   </div>
+   <% end %>
+  <% end %>
+  </div>
+</div>
+
+<!-- <h1>Yo bitch show me a view</h1> -->
+<!-- leaving it here because it reminds me all the hardship I've went through to get this private messaging up  -->
+
+<%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+<div class="chat_message">
+ <%= f.text_area :body, placeholder: "Type Message Here", class: "form-control" %>
+ <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+ <%= f.text_field :sender_id, value: current_user.id, type: "hidden" %>
+ <%= f.text_field :recipient_id, value: @conversation.sender_id == current_user.id ? @conversation.recipient_id : @conversation.sender_id, type: "hidden" %>
+ <%= f.submit "Send", class: "submit_chat" %>
+ </div>
+<% end %>
+
+<!-- <p><%= button_to 'Delete Conversation', conversation_path(@c_id), class: 'delete_convo', method: :delete %></p> -->
+<%= button_to conversation_path(@c_id), class: 'delete_convo', method: :delete do %>
+  <i class="fa fa-trash-o fa-2x"></i>
+<%end%>
+
+</div>
+<!-- conversation_path(@c_id) is the delete route, which then accesses def destroy in conversations controller. from there, delete the convo and give it a redirection -->
+<p><%= button_to 'Back', conversations_path, class: 'back_to_conversations', method: :get %></p>
