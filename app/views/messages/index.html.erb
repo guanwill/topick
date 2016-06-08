@@ -37,6 +37,7 @@
 <!-- <h1>Yo bitch show me a view</h1> -->
 <!-- leaving it here because it reminds me all the hardship I've went through to get this private messaging up  -->
 
+
 <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
 <div class="chat_message">
  <%= f.text_area :body, placeholder: "Type Message Here", class: "form-control" %>
@@ -49,7 +50,7 @@
 
 <!-- <p><%= button_to 'Delete Conversation', conversation_path(@c_id), class: 'delete_convo', method: :delete %></p> -->
 <%= button_to conversation_path(@c_id), class: 'delete_convo', method: :delete do %>
-  <i class="fa fa-trash-o fa-2x"></i>
+  <p>Delete </p>
 <%end%>
 
 </div>

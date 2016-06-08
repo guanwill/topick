@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   def index
-    @photo = Photo.paginate(:page => params[:page], per_page: 2)
+    @photo = Photo.paginate(:page => params[:page], per_page: 2).order('id DESC')
   end
 
   def new
@@ -12,7 +12,7 @@ class PhotosController < ApplicationController
     @photo.user = current_user
     @photo.image = params[:photo][:image]
     @photo.save
-    
+
     if @photo.save
       flash[:success] = "The photo was added!"
       redirect_to photos_path

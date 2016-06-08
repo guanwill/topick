@@ -8,6 +8,7 @@ module NotificationsHelper
     my_conversations.each do |convo|
       i = i + convo.messages.where(:recipient_id => current_user.id, :read => false).count
     end
+    i
   end
 
 
