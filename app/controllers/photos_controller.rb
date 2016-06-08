@@ -12,6 +12,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new
     @photo.user = current_user
     @photo.image = params[:photo][:image]
+    @photo.description = params[:photo][:description]
     @photo.save
 
     if @photo.save
@@ -54,6 +55,6 @@ class PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:image, :user)
+    params.require(:photo).permit(:image, :user, :description)
   end
 end
