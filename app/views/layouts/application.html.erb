@@ -13,11 +13,13 @@
         <%= link_to 'Topick', root_path, class: 'navbar-brand' %>
       </div>
       <ul class="nav navbar-nav">
-        <% if user_signed_in? %>
+        <li><%= link_to 'Top 10', root_path%></li>
+        <li><%= link_to 'Photos', photos_path %></li>
 
+        <% if user_signed_in? %>
           <li><a href="<%=conversations_path%>"> Inbox (<%=notifications%>)</a> </li>  <!--the notifications here refers to the notification helper which runs the logic to spit out the counter number-->
 
-          <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+          <li><%= link_to current_user.name, edit_user_registration_path %></li>
           <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to 'Log In', new_user_session_path %></li>

@@ -34,10 +34,6 @@
   </div>
 </div>
 
-<!-- <h1>Yo bitch show me a view</h1> -->
-<!-- leaving it here because it reminds me all the hardship I've went through to get this private messaging up  -->
-
-
 <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
 <div class="chat_message">
  <%= f.text_area :body, placeholder: "Type Message Here", class: "form-control" %>
