@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   def index
-    @photo = Photo.paginate(:page => params[:page], per_page: 2).order('id DESC')
+    @photo = Photo.paginate(:page => params[:page], per_page: 3).order('id DESC')
     @user = User.all
   end
 
@@ -50,6 +50,24 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
     @photo_all = Photo.all
+  end
+
+  def likes
+    @newlike = Like.new
+    @newlike.user_id = current_user.id
+    @newlike.photo_id = params[:like][:photo_id]
+    @newlike.save
+    if @newlike.save
+      redirect_to photos_path
+    end
+  end
+
+  def like_destroy
+    like = Like.where(:user_id => current_user.id, :photo_id => params[:photo_id])
+    like.each do |like|
+      like.destroy
+    end
+    redirect_to photos_path
   end
 
   private

@@ -10,14 +10,13 @@
   <nav class="navbar navbar-inverse">
     <div class="container">
       <div class="navbar-header">
-        <%= link_to 'Topick', root_path, class: 'navbar-brand' %>
+        <%= link_to 'Topick', photos_path, class: 'navbar-brand' %>
       </div>
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Top 10', root_path%></li>
+        <li><%= link_to 'Popular', root_path%></li>
         <li><%= link_to 'Photos', photos_path %></li>
 
         <% if user_signed_in? %>
-          <li><a href="<%=conversations_path%>"> Inbox (<%=notifications%>)</a> </li>  <!--the notifications here refers to the notification helper which runs the logic to spit out the counter number-->
 
           <li><%= link_to current_user.name, edit_user_registration_path %></li>
           <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
@@ -44,6 +43,6 @@
 
 
 <%= yield %>
-
+<!-- <script id="dsq-count-scr" src="//topicks.disqus.com/count.js" async></script> -->
 </body>
 </html>

@@ -8,4 +8,7 @@ class Photo < ActiveRecord::Base
   validates_attachment :image, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
   belongs_to :user
+
+  has_many :likes 
+
 end

@@ -12,6 +12,24 @@
           <p class="<%=photo.id%>"><%= link_to image_tag(photo.image.url(:thumb), class: 'media-object'), photo %> </p>
           <p class="image-description"><%=photo.description%></p> <p class="post_by"><i> Posted by: <%=User.find_by(:id => photo.user_id).name%> </i><p>
 
+            <!--LIKE BUTTON --><!--passing values to the like model upon clicking button, no user inputs required-->
+            <%if current_user%>
+              <%if current_user.id && Like.find_by(:photo_id => photo.id)%>
+                  <%= button_to photos_likes_path, method: :delete do%>
+                    Unlike
+                  <%end%>
+
+              <%else%>
+                  <form action="/likes" method="post">
+                  <input type="hidden" name="user_id" value="<%= current_user.id %>">
+                  <input type="hidden" name="photo_id" value="<%= photo.id %>"> <!-- hidden input passing a params back into main.rb under create a link, pulling data from current dish that's in the loop -->
+                  <button>Like</button>
+                  </form>
+              <%end%>
+                  <%=photo.likes.count%>
+            <%end%>
+
+          <a href="photos/<%=photo.id%>#disqus-thread">test</a>
         <%end%>
       </div>
 
