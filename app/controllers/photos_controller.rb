@@ -70,6 +70,21 @@ class PhotosController < ApplicationController
     redirect_to photos_path
   end
 
+
+  #upvote_from user
+  #downvote_from_user
+  def upvote
+    @photo = Photo.find(params[:id])
+    @photo.upvote_from current_user
+    redirect_to photos_path
+  end
+
+  def downvote
+    @photo = Photo.find(params[:id])
+    @photo.downvote_from current_user
+    redirect_to photos_path
+  end
+
   private
 
   def photo_params

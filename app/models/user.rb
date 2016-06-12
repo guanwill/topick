@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
 
   has_many :photos
   has_many :likes
+
+  acts_as_voter
 end

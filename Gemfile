@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'paperclip'
 # gem 'bootstrap-will_paginate'
 gem 'will_paginate'

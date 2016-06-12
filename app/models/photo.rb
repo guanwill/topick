@@ -7,8 +7,10 @@ class Photo < ActiveRecord::Base
 
   validates_attachment :image, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
+  acts_as_votable
+
   belongs_to :user
 
-  has_many :likes 
+  has_many :likes
 
 end
