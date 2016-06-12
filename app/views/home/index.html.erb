@@ -10,8 +10,6 @@
           <p class="<%=photo.id%>"><%= link_to image_tag(photo.image.url(:thumb)), photo %> </p>
           <p class="image-description"><%=photo.description%></p> <p class="post_by"><i> Posted by: <%=User.find_by(:id => photo.user_id).name%> </i><p>
 
-
-
             <%= link_to like_photo_path(photo), method: :put do %>
               Upvote
               <%= photo.get_upvotes.size %>

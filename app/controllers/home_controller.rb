@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @photo = Photo.all
+    @photo = Photo.all.order(:cached_votes_score => :desc)
   end
 
 
