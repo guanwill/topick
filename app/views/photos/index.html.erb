@@ -2,28 +2,18 @@
 
 <% if current_user %>
   <li><%= link_to 'Upload Photo', '/photos/new' %></li>
-<%end%>
+<%end%><br>
 
-        <% @photo.each do |photo| %>
-          <p class="<%=photo.id%>"><%= link_to image_tag(photo.image.url(:thumb)), photo %> </p>
-          <p class="image-description"><%=photo.description%></p> <p class="post_by"><i> Posted by: <%=User.find_by(:id => photo.user_id).name%> </i><p>
+<div class="row">
+  <% @photo.each do |photo| %>
+  <div class="col-md-3">
+    <p class="<%=photo.id%>"><%= link_to image_tag(photo.image.url(:thumb)), photo %> </p>
+    <%= link_to like_photo_path(photo), method: :put do %>Upvote<%= photo.get_upvotes.size %><% end %>
+    <%= link_to dislike_photo_path(photo), method: :put do %>Downvote<%= photo.get_downvotes.size %><% end %>
+    <p class="image-description"><%=photo.description%></p> <p class="post_by"><i> Posted by: <%=User.find_by(:id => photo.user_id).name%> </i><p>
+  </div>
+  <%end%>
 
+</div>
 
-
-            <%= link_to like_photo_path(photo), method: :put do %>
-              Upvote
-              <%= photo.get_upvotes.size %>
-            <% end %>
-
-            <%= link_to dislike_photo_path(photo), method: :put do %>
-              Downvote
-              <%= photo.get_downvotes.size %>
-            <% end %>
-
-
-          <a href="photos/<%=photo.id%>#disqus-thread">test</a>
-        <%end%>
-
-
-
-  <p><%= will_paginate @photo, class: 'pagination' %></p>
+<p><%= will_paginate @photo, class: 'pagination' %></p>
