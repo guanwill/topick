@@ -12,22 +12,26 @@
           <p class="<%=photo.id%>"><%= link_to image_tag(photo.image.url(:thumb), class: 'media-object'), photo %> </p>
           <p class="image-description"><%=photo.description%></p> <p class="post_by"><i> Posted by: <%=User.find_by(:id => photo.user_id).name%> </i><p>
 
-            <!--LIKE BUTTON --><!--passing values to the like model upon clicking button, no user inputs required-->
-            <%if current_user%>
-              <%if current_user.id && Like.find_by(:photo_id => photo.id)%>
-                  <%= button_to photos_likes_path, method: :delete do%>
-                    Unlike
-                  <%end%>
+         <!--LIKE BUTTON --><!--passing values to the like model upon clicking button, no user inputs required-->
+         <%if current_user%>
+            <%if current_user.id && Like.find_by(:photo_id => photo.id)%>
+                <!-- <%= button_to 'unlike', {:controller => :photos, :action => 'like_destroy', :method => :delete} %> -->
 
-              <%else%>
-                  <form action="/likes" method="post">
-                  <input type="hidden" name="user_id" value="<%= current_user.id %>">
-                  <input type="hidden" name="photo_id" value="<%= photo.id %>"> <!-- hidden input passing a params back into main.rb under create a link, pulling data from current dish that's in the loop -->
-                  <button>Like</button>
-                  </form>
-              <%end%>
-                  <%=photo.likes.count%>
+                <%=form_for :like, url: photos_like_destroy_path, method: :delete do |f| %>
+                  <%=f.number_field :user_id, value: current_user.id, type: "hidden" %>
+                  <%=f.number_field :photo_id, value: photo.id, type: "hidden" %>
+                  <%=f.submit "unlike #{photo.likes.count}", class: "btn btn-default" %> <!--for this particular photo in the loop, count the total likes-->
+                <%end%>
+
+            <%else%>
+                <%=form_for :like, url: photos_likes_path do |f| %>
+                  <%=f.number_field :user_id, value: current_user.id, type: "hidden" %>
+                  <%=f.number_field :photo_id, value: photo.id, type: "hidden" %>
+                  <%=f.submit "Like #{photo.likes.count}", class: "btn btn-default" %> <!--for this particular photo in the loop, count the total likes-->
+                <%end%>
             <%end%>
+                <%=photo.likes.count%>
+          <%end%>
 
           <a href="photos/<%=photo.id%>#disqus-thread">test</a>
         <%end%>

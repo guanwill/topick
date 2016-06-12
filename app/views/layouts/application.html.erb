@@ -7,14 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <%= link_to 'Topick', photos_path, class: 'navbar-brand' %>
+        <%= link_to 'Topick', root_path, class: 'navbar-brand' %>  <!--can replace topick with logo and uses navbar-brand class for styling-->
       </div>
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'Popular', root_path%></li>
+      <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Photos', photos_path %></li>
+        <li><%= link_to 'About', about_path %></li>
 
         <% if user_signed_in? %>
 
