@@ -16,3 +16,10 @@
 // require materialize-sprockets
 //= require bootstrap-sprockets
 // require_tree .
+
+
+
+
+$(".like").bind("ajax:success", function(){
+  $(".up-<%=@photo.id%>").text('<%=@photo.get_upvotes.size%>');
+});

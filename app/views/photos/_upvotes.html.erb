@@ -1,0 +1,20 @@
+
+
+<%if (current_user.voted_up_on? photo) && (photo.liked_by current_user)%>  <!--if user has liked the photo, then change the class to .vote where the color of the link is different compared to before-voting-->
+
+  <span class= "like-<%=photo.id%>">
+  <%=link_to like_photo_path(photo), method: :put, class: 'like voted' do %>
+
+    <p class="up-<%=photo.id%>"> <span class="glyphicon glyphicon-cutlery"></span> <%= photo.get_upvotes.size %> </p>
+  <%end%>
+  </span>
+
+<%else%>
+
+  <span class= "like-<%=photo.id%>">
+  <%=link_to like_photo_path(photo), method: :put, class: 'like' do %>
+    <p class="up-<%=photo.id%>"> <span class="glyphicon glyphicon-cutlery"></span> <%= photo.get_upvotes.size %> </p>
+  <%end%>
+  </span>
+
+<%end%>
