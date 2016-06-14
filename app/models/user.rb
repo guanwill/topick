@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
 
   validates :name, :presence => true, :uniqueness => {:case_sensitive => false}
 
-  has_many :photos
-  has_many :likes
+  has_many :photos, :dependent => :destroy
+  has_many :likes, :dependent => :destroy
 
   acts_as_voter
 end

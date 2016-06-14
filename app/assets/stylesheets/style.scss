@@ -4,3 +4,44 @@
 .image-description {
   text-align: center;
 }
+// SIGN UP FORM
+.sign_up_form {
+  text-align: center;
+  position: relative;
+  top: 150px;
+}
+.sign_up_field {
+  width: 30%;
+  text-align: center;
+}
+// EDIT FORM
+.edit_form {
+  text-align: center;
+  position: relative;
+  top: 100px;
+}
+.edit_field {
+  width: 35%;
+  text-align: center;
+}
+// LOGIN FORM
+.login_form {
+  text-align: center;
+  position: relative;
+  top: 150px;
+}
+.login_field {
+  width: 30%;
+  text-align: center;
+}
+// LIKE BUTTONS
+.like:hover, .dislike:hover{
+  text-decoration: none;
+  color: salmon;
+}
+// PAGINATION
+.pagination {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
