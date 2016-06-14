@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor', group: :production
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'paperclip'
 # gem 'bootstrap-will_paginate'
@@ -50,3 +51,5 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+ruby '2.3.1'
