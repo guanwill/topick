@@ -75,7 +75,12 @@ class PhotosController < ApplicationController
   #downvote_from_user
   def upvote
     @photo = Photo.find(params[:id])
-    @photo.upvote_from current_user
+
+    if (current_user.voted_up_on? @photo) && (@photo.liked_by current_user) #if user has voted on photo and the photo is liked by the current user, let the user UNVOTE 
+      @photo.unvote_by current_user
+    else
+      @photo.upvote_from current_user
+    end
     redirect_to photos_path
   end
 
