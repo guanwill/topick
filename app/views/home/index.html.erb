@@ -1,18 +1,18 @@
-<div class="page-header"><h1>TOP 10</h1></div>
-
-<!-- <li><%= link_to 'Upload Photo', '/photos/new' %></li> -->
-
-<div class="row">
+<div class="row photo-container">
   <% @photo.each do |photo| %>
-  <div class="col-md-3">
+  <div class="col-md-3 images">
+    <div class="thumbnail">
     <p class="<%=photo.id%>"><%= link_to image_tag(photo.image.url(:thumb)), photo %> </p>
 
-    <%=render(:partial => "/photos/upvotes", :locals => {:photo => photo}) %>  <!--rendering out the partial _upvotes.html.erb which is the like button-->
-
-    <p class="post_by"><i> Posted by: <%=User.find_by(:id => photo.user_id).name%> </i><p>
+    <!--rendering out the partial _upvotes.html.erb which is the like button-->
+    &nbsp&nbsp<%=render(:partial => "/photos/upvotes", :locals => {:photo => photo}) %>&nbsp&nbsp&nbsp&nbsp<i> Posted by: <b><%=User.find_by(:id => photo.user_id).name%></b> </i>
+    </div>
   </div>
   <%end%>
 
 </div>
+</div>
 
-<p><%= will_paginate @photo, class: 'pagination' %></p>
+<div class="photo-footer">
+<%= will_paginate @photo, :previous_label => 'Previous', :next_label => 'Next', class: 'pagination' %>
+</div>

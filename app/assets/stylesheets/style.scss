@@ -1,3 +1,7 @@
+body {
+  background: url("https://s31.postimg.org/atotkbcjv/desk_restaurant_wine_glasses_plates_flowers_rose.jpg");
+}
+// CONTENT
 .post_by {
   text-align: center;
 }
@@ -14,6 +18,12 @@
   width: 30%;
   text-align: center;
 }
+.sign_bg {
+  background: rgba(221, 221, 221, 0.7);
+  border: 2px solid gray;
+  padding: 30px 0px 30px 0px;
+  border-radius: 20px;
+}
 // EDIT FORM
 .edit_form {
   text-align: center;
@@ -23,6 +33,12 @@
 .edit_field {
   width: 35%;
   text-align: center;
+}
+.edit_bg {
+  background: rgba(221, 221, 221, 0.7);
+  border: 2px solid gray;
+  padding: 30px 0px 30px 0px;
+  border-radius: 20px;
 }
 // LOGIN FORM
 .login_form {
@@ -34,18 +50,121 @@
   width: 30%;
   text-align: center;
 }
+.login-bg {
+  background: rgba(221, 221, 221, 0.7);
+  border: 2px solid gray;
+  padding: 30px 0px 30px 0px;
+  border-radius: 20px;
+}
 // LIKE BUTTONS
 .like:hover, .dislike:hover{
   text-decoration: none;
   color: salmon;
 }
-// PAGINATION
-.pagination {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-}
-// VOTED
 .voted {
   color: salmon;
+}
+// PAGINATION
+.pagination {
+  position: relative;
+  top: 100px;
+  display: inline-block;
+  color: black;
+  font-size: 18px;
+}
+.pagination a{
+  color: black;
+}
+.pagination a:hover {
+  color: rgb(33, 101, 126);
+  text-decoration: none;
+  display: inline-block;
+}
+// PHOTOS PAGE
+.like_p {
+  display: inline-block;
+}
+.images {
+  padding-top: 20px;
+}
+h3 {
+  display: inline-block;
+}
+.photo-footer{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.upload-photo {
+  margin-right: 20px;
+}
+.upload-photo > a {
+  // color: white;
+}
+.photo-container {
+  position: relative;
+  top: 100px;
+  background: rgba(26, 26, 26, 0.7);
+}
+// PHOTO INFO PAGE
+.photoshow_bg {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid gray;
+  padding: 130px 0px 30px 0px;
+  position: relative;
+  top: 100px;
+  margin-top: -100px;
+  bottom: 0;
+}
+.comments {
+  padding: 50px;
+}
+.photoshow {
+  display: block;
+  text-align: center;
+}
+.edit_delete {
+  display: block;
+  text-align: center;
+}
+.button_to {
+  display: inline-block;
+}
+// EDIT PHOTO
+.editphoto_bg {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid gray;
+  padding: 130px 0px 30px 0px;
+  position: relative;
+  top: 100px;
+  margin-top: -100px;
+  bottom: 0;
+  height: 100vh;
+}
+.editphoto-field{
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  padding: 7px 0 7px 0;
+  text-align: center;
+}
+.cancel_edit {
+  margin-left: 10px;
+}
+.editphoto-buttons {
+  display: block;
+  text-align: center;
+}
+.editphoto-upload {
+  display: inline-block;
+  margin: 0 auto;
+}
+.edit-photo-header {
+  text-align: center;
+}
+.form-group {
+  text-align: center;
+}
+.editphoto-upload-wrap{
+  margin: 40px;
 }

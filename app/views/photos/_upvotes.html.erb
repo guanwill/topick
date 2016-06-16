@@ -4,8 +4,7 @@
 
   <span class= "like-<%=photo.id%>">
   <%=link_to like_photo_path(photo), method: :put, class: 'like voted' do %>
-
-    <p class="up-<%=photo.id%>"> <span class="glyphicon glyphicon-cutlery"></span> <%= photo.get_upvotes.size %> </p>
+    <p class="up-<%=photo.id%> like_p"> <span class="glyphicon glyphicon-cutlery"></span> <%= photo.get_upvotes.size %> </p>
   <%end%>
   </span>
 
@@ -13,7 +12,7 @@
 
   <span class= "like-<%=photo.id%>">
   <%=link_to like_photo_path(photo), method: :put, class: 'like' do %>
-    <p class="up-<%=photo.id%>"> <span class="glyphicon glyphicon-cutlery"></span> <%= photo.get_upvotes.size %> </p>
+    <p class="up-<%=photo.id%> like_p"> <span class="glyphicon glyphicon-cutlery"></span> <%= photo.get_upvotes.size %> </p>
   <%end%>
   </span>
 

@@ -1,20 +1,26 @@
-<h1>ORIGINAL PICTURE</h1>
 
-<p><%= link_to image_tag(@photo.image.url(:thumb)), @photo.image.url, target: '_blank' %></p>
-<p class="image-description"><%=@photo.description%></p> <p class="post_by"><i> Posted by: <%=User.find_by(:id => @photo.user_id).name%> </i><p>
+<div class="photoshow_bg">
+<p class='photoshow'><%= link_to image_tag(@photo.image.url(:thumb)), @photo.image.url, target: '_blank' %></p>
+<p class="image-description"><%=@photo.description%></p> <p class="post_by"><i> Posted by: <b><%=User.find_by(:id => @photo.user_id).name%></b> at <%=User.find_by(:id => @photo.user_id).created_at%> </i><p>
+
 
 <% if current_user && @photo.user_id == current_user.id %>
-  <%= button_to edit_photo_path(@photo), method: :get do %>
-    <p>edit<p>
+
+  <div class='edit_delete'>
+  <%= button_to edit_photo_path(@photo), method: :get, class: 'btn btn-default edit-photo' do %>
+    Edit
   <%end%>
-  <%= button_to photo_path(@photo), method: :delete do%>
-    <p>delete<p>
+
+  <%= button_to photo_path(@photo), method: :delete, class: 'btn btn-default delete-photo' do%>
+    Delete
   <%end%>
+  </div>
+
 <%end%>
 
-<div id="disqus_thread"></div>
 
-<!--DISQUS-->
+<div class="comments">
+<div id="disqus_thread"></div>
 <script>
 (function() {
 var d = document, s = d.createElement('script');
@@ -23,3 +29,6 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
+</div>
+
+</div>
