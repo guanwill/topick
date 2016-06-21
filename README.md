@@ -15,6 +15,6 @@
 * HTML5/CSS3
 * Devise Gem for Authentication
 * Paperclip Gem for uploading photos
-* Act_as_votable to allow users to like and dislike photos
-* Will_paginate to create pages when photos exceed a certain number
+* Act_as_votable Gem to allow users to like and dislike photos
+* Will_paginate Gem to create pages when photos exceed a certain number
 * Bootstrap library for CSS
