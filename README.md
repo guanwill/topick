@@ -1,4 +1,4 @@
-_**[General Assembly Personal Project - Not Maintained]**_
+_**[Personal Project - Not Maintained]**_
 
 # Topick: Instagram for Foodies
 
